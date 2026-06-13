@@ -1,0 +1,214 @@
+/* ══════════════════════════════════════════════════════════════
+   CHEDI CSA WEBSITE - GLOBAL STYLES & DESIGN TOKENS
+   ═════════════════════════════════════════════════════════════ */
+
+/* ── DESIGN TOKENS ─────────────────────────────────────────────── */
+:root {
+  --green-dark: #0d2818;
+  --green-mid: #1a4a2e;
+  --green-light: #2d6a4f;
+  --green-accent: #40916c;
+  --gold: #c9963e;
+  --gold-light: #e8b96a;
+  --beige: #f5f0e8;
+  --beige-dark: #ede5d4;
+  --cream: #faf8f3;
+  --white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-mid: #3d3d3d;
+  --text-light: #6b6b6b;
+}
+
+/* ── RESET & BASE STYLES ───────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY ────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* CHEDI brand highlight in page content (not navbar/footer) */
+.chedi-brand {
+  color:  var(--green-accent);
+}
+
+.hero-sub .chedi-brand,
+.problem-closing .chedi-brand,
+.cta-banner-sub .chedi-brand,
+.section-heading.white .chedi-brand,
+.section-sub.white .chedi-brand,
+.community-banner-text .chedi-brand {
+  color: #74c69d;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── SHARED UTILITIES ──────────────────────────────────────────── */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all .25s;
+  letter-spacing: .5px;
+  text-decoration: none;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--green-dark);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 150, 62, .5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, .5);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, .1);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-green {
+  background: var(--green-mid);
+  color: #fff;
+}
+
+.btn-green:hover {
+  background: var(--green-light);
+  transform: translateY(-2px);
+}
+
+/* ── SECTION HEADERS ───────────────────────────────────────────── */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 50px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--green-dark);
+}
+
+.section-heading.white {
+  color: #fff;
+}
+
+.section-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-light);
+  max-width: 560px;
+}
+
+.section-sub.white {
+  color: rgba(255, 255, 255, .72);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-header .section-sub {
+  margin: 14px auto 0;
+}
+
+/* ── GLOBAL ANIMATIONS ─────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ── ACCESSIBILITY ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

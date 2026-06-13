@@ -1,0 +1,821 @@
+/* ══════════════════════════════════════════════════════════════
+   CHEDI – Mobile & Tablet Responsive Overrides
+   Loaded last to override inline and embedded styles
+   ══════════════════════════════════════════════════════════════ */
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+.page {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+#page-projects {
+  width: 100%;
+  max-width: 100%;
+}
+
+#page-projects .projects-ref-frame {
+  width: 100%;
+  max-width: 100%;
+}
+
+#page-farm-listing,
+#page-project-details {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* ── Shared section padding classes ── */
+.section-responsive-pad {
+  padding: 100px 40px;
+}
+
+.section-img-strip {
+  padding: 0 40px 80px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.section-benefits-pad {
+  padding: 60px 40px 100px;
+}
+
+.section-stats-pad {
+  padding: 56px 40px;
+}
+
+.legal-page-section {
+  padding: 100px 40px;
+}
+
+.legal-page-section h1 {
+  font-size: clamp(28px, 6vw, 42px) !important;
+}
+
+.legal-page-section h2 {
+  font-size: clamp(18px, 4vw, 24px) !important;
+}
+
+/* CSA membership step grids (replaces inline grid-template-columns) */
+.steps-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.steps-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 18px;
+}
+
+.csa-points-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+  margin-top: 20px;
+  color: white;
+  font-size: 22px;
+  text-align: center;
+  align-items: center;
+}
+
+.csa-full-width {
+  grid-column: 1 / -1;
+  padding: 15px 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.basket-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.responsive-img-card {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 440px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .13);
+}
+
+/* CSA hero acronym title */
+.csa-acronym-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.csa-acronym-title h1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 28px);
+  font-size: clamp(20px, 2.5vw, 32px);
+  letter-spacing: clamp(1px, 0.5vw, 4px);
+  line-height: 1.2;
+  font-weight: bold;
+  color: var(--gold);
+}
+
+.csa-acronym-line {
+  white-space: nowrap;
+}
+
+.csa-acronym-letter {
+  color: var(--green-accent);
+}
+
+/* ── TABLET (≤1024px) ── */
+@media (max-width: 1024px) {
+  .land-hero-content {
+    padding: 48px 24px;
+  }
+
+  .farmer-hero-content,
+  .model-hero-content,
+  .about-hero-content,
+  .projects-hero-content {
+    padding: 60px 24px;
+  }
+}
+
+/* ── MOBILE & TABLET (≤768px) ── */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Section padding reductions */
+  .problem-section,
+  .ecosystem-section,
+  .story-section,
+  .farmer-section,
+  .models-section,
+  .tech-section,
+  .impact-section,
+  .why-land,
+  .process-section,
+  .leasing-section,
+  .partnership-section,
+  .metrics-section,
+  .income-section,
+  .sustain-section,
+  .built-section,
+  .learning-section,
+  .training-section,
+  .tech-tools-section,
+  .journey-section,
+  .plans-section,
+  .membership-steps-section,
+  .plot-section,
+  .basket-section,
+  .seasonal-section,
+  .weekly-share-section,
+  .delivery-section,
+  .membership-fee-section,
+  .app-section,
+  .coming-soon-section,
+  .healthy-world-section,
+  .health-benefits-section,
+  .csa-save-section,
+  .sustainability-section,
+  .mission-section,
+  .revenue-section,
+  .carbon-section,
+  .why-section,
+  .projects-section,
+  .section-responsive-pad,
+  .section-benefits-pad,
+  .section-stats-pad,
+  .legal-page-section {
+    padding: 60px 20px !important;
+  }
+
+  .section-img-strip {
+    padding: 0 20px 48px !important;
+  }
+
+  .logo img,
+  .logo-img {
+    height: 48px !important;
+    max-width: 160px !important;
+  }
+
+  .why-land::after {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 248, 243, 0.78) 0%,
+      rgba(250, 248, 243, 0.62) 100%
+    ) !important;
+  }
+
+  .sustain-bg::after {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 248, 243, 0.78) 0%,
+      rgba(250, 248, 243, 0.62) 100%
+    ) !important;
+  }
+
+  .home-hero-content,
+  .csa-hero-content,
+  .legal-hero-content {
+    padding: 60px 20px !important;
+  }
+
+  .csa-hero-title {
+    font-size: clamp(28px, 7vw, 70px) !important;
+  }
+
+  .csa-acronym-title h1 {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .csa-hero-desc {
+    font-size: 16px;
+  }
+
+  .home-hero-bg::after,
+  .land-hero-bg::after,
+  .farmer-hero-bg::after,
+  .journey-bg::after,
+  .model-1-bg::after,
+  .model-2-bg::after,
+  .about-hero-bg::after,
+  .projects-hero-bg::after,
+  .contact-hero::after,
+  .cta-banner-bg::after,
+  .csa-hero-bg::after,
+  .csa-token-banner::after,
+  .legal-hero-bg::after {
+    background: var(--hero-overlay-dark-mobile) !important;
+  }
+
+  .csa-features {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .csa-feature {
+    flex: 1 1 calc(50% - 12px);
+  }
+
+  .cta-btns.center {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-btns.center .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .farmer-hero-content,
+  .model-hero-content,
+  .about-hero-content,
+  .projects-hero-content {
+    padding: 48px 20px !important;
+  }
+
+  .farmer-hero .dual-value {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
+
+  .farmer-hero .cta-btns {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .farmer-hero .cta-btns .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  .land-hero-content {
+    padding: 40px 20px !important;
+  }
+
+  .land-hero-title {
+    font-size: clamp(36px, 4.5vw, 62px);
+    letter-spacing: -1px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 28px 20px 16px !important;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+    margin-bottom: 20px !important;
+  }
+
+  .footer-logo img {
+    height: 76px;
+  }
+
+  .footer-brand p {
+    margin-top: 8px;
+  }
+
+  .footer-brand .social-icons {
+    margin-top: 10px;
+  }
+
+  .footer-brand p,
+  .footer-col a,
+  .footer-contact p,
+  .footer-contact .footer-location {
+    font-size: 15px;
+  }
+
+  .footer-col h4 {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .footer-col a,
+  .footer-contact p {
+    margin-bottom: 7px;
+  }
+
+  .footer-bottom {
+    padding-top: 14px !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footer-bottom p,
+  .footer-legal-link {
+    font-size: 14px;
+  }
+
+  /* Timeline */
+  .timeline {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px;
+  }
+
+  .timeline-num {
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+  }
+
+  /* Contact */
+  .contact-body {
+    padding: 48px 20px !important;
+    gap: 40px !important;
+  }
+
+  .contact-form {
+    padding: 24px 20px !important;
+  }
+
+  .contact-hero {
+    min-height: 100vh;
+    padding-top: 72px;
+  }
+
+  .contact-hero-text {
+    padding: 60px 20px !important;
+  }
+
+  /* Fixed-height images → fluid */
+  .hero-img-card,
+  .leasing-img,
+  .farmer-hero-img,
+  .built-img,
+  .steps-intro-img,
+  .story-img-wrap,
+  .model-hero-img,
+  .about-story-img,
+  .training-img,
+  .lng-nutrition-img,
+  .basket-img-wrap,
+  .app-mockup,
+  .responsive-img-card {
+    height: clamp(220px, 50vw, 380px) !important;
+    min-height: 220px;
+  }
+
+  /* Plot hero — full-bleed background with room for stacked content */
+  .plot-section {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .plot-bg {
+    height: clamp(460px, 75vh, 620px) !important;
+    min-height: clamp(460px, 75vh, 620px) !important;
+  }
+
+  .plot-content {
+    padding: 80px 24px 48px !important;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .plot-content .plot-title {
+    font-size: clamp(26px, 7vw, 42px) !important;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .plot-sub {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .plot-content .btn {
+    margin-top: 0;
+  }
+
+  .plot-cta {
+    margin-top: 20px !important;
+  }
+
+  .plot-cards-strip {
+    padding: 48px 20px !important;
+  }
+
+  .delivery-visual {
+    height: clamp(280px, 60vw, 450px) !important;
+  }
+
+  /* Hero stats */
+  .hero-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  /* Dense grids → single column */
+  .problem-grid,
+  .tech-grid,
+  .mission-pillars,
+  .csa-stats-row,
+  .why-grid,
+  .carbon-points,
+  .model-benefits-grid,
+  .impact-grid,
+  .metrics-grid,
+  .revenue-grid,
+  .income-extra-grid,
+  .income-stats,
+  .income-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CSA grids */
+  .steps-grid,
+  .steps-grid--4,
+  .steps-grid--3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .csa-points-grid {
+    grid-template-columns: 1fr !important;
+    font-size: 16px !important;
+    text-align: left !important;
+    gap: 12px !important;
+  }
+
+  .basket-features-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Delivery decorative float cards */
+  .delivery-float-card {
+    display: none !important;
+  }
+
+  /* Longevity integrated sections */
+  .lng-section {
+    padding: 48px 20px !important;
+  }
+
+  .lng-care-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .lng-holistic-card {
+    height: auto !important;
+    min-height: 260px;
+  }
+
+  .lng-holistic-body {
+    padding: 22px 20px 24px !important;
+    gap: 5px !important;
+  }
+
+  .lng-holistic-title {
+    font-size: 20px !important;
+  }
+
+  .longevity-page .lng-hero {
+    padding: 60px 20px 48px !important;
+  }
+
+  .lng-hero-title {
+    font-size: clamp(28px, 7vw, 48px) !important;
+  }
+
+  /* CSA token banner */
+  .csa-token-bg img {
+    object-position: center 62%;
+  }
+
+  .csa-token-inner {
+    padding: 36px 20px 32px !important;
+  }
+
+  .csa-token-inner .csa-member-card {
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    max-width: none !important;
+    margin-top: 28px !important;
+    padding: 28px 24px !important;
+  }
+
+  .csa-token-tag {
+    font-size: clamp(22px, 5vw, 36px) !important;
+  }
+
+  /* Membership fee image overlay */
+  .fee-right {
+    min-height: clamp(280px, 55vw, 380px) !important;
+  }
+
+  .fee-right::after {
+    background: linear-gradient(to bottom, transparent 35%, rgba(13, 40, 24, .4) 100%) !important;
+  }
+
+  .fee-image-overlay {
+    padding: 22px 20px !important;
+  }
+
+  .fee-overlay-text {
+    font-size: clamp(14px, 3.6vw, 17px) !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Model pages inline image strips */
+  .model-img-strip {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Two-column layouts */
+  .two-col,
+  .steps-intro,
+  .basket-intro,
+  .app-inner,
+  .fee-card {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── SMALL MOBILE (≤480px) ── */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .header-inner {
+    padding: 0 16px !important;
+  }
+
+  .logo img,
+  .logo-img {
+    height: 44px !important;
+    max-width: 140px !important;
+  }
+
+  .problem-section,
+  .ecosystem-section,
+  .story-section,
+  .farmer-section,
+  .models-section,
+  .tech-section,
+  .impact-section,
+  .why-land,
+  .process-section,
+  .leasing-section,
+  .partnership-section,
+  .metrics-section,
+  .income-section,
+  .sustain-section,
+  .built-section,
+  .learning-section,
+  .training-section,
+  .tech-tools-section,
+  .journey-section,
+  .plans-section,
+  .membership-steps-section,
+  .plot-section,
+  .basket-section,
+  .seasonal-section,
+  .weekly-share-section,
+  .delivery-section,
+  .membership-fee-section,
+  .app-section,
+  .coming-soon-section,
+  .healthy-world-section,
+  .health-benefits-section,
+  .csa-save-section,
+  .sustainability-section,
+  .mission-section,
+  .revenue-section,
+  .carbon-section,
+  .why-section,
+  .projects-section,
+  .section-responsive-pad,
+  .section-benefits-pad,
+  .section-stats-pad,
+  .legal-page-section {
+    padding: 40px 16px !important;
+  }
+
+  .section-img-strip {
+    padding: 0 16px 32px !important;
+  }
+
+  .home-hero-content,
+  .csa-hero-content,
+  .legal-hero-content,
+  .farmer-hero-content,
+  .model-hero-content,
+  .about-hero-content,
+  .projects-hero-content {
+    padding: 40px 16px !important;
+  }
+
+  .csa-acronym-title h1 {
+    flex-direction: column;
+    gap: 4px;
+    font-size: clamp(16px, 4.5vw, 24px);
+    letter-spacing: 2px;
+  }
+
+  .contact-body {
+    padding: 32px 16px !important;
+  }
+
+  .plot-section {
+    padding: 0 !important;
+  }
+
+  .plot-bg {
+    height: clamp(480px, 82vh, 660px) !important;
+    min-height: clamp(480px, 82vh, 660px) !important;
+  }
+
+  .plot-content {
+    padding: 72px 20px 40px !important;
+    gap: 12px;
+  }
+
+  .plot-content .plot-title {
+    font-size: clamp(24px, 6.5vw, 36px) !important;
+  }
+
+  .plot-sub {
+    font-size: 14px !important;
+  }
+
+  .plot-cta {
+    margin-top: 16px !important;
+  }
+
+  .plot-cards-strip {
+    padding: 40px 16px !important;
+  }
+
+  footer {
+    padding: 24px 16px 14px !important;
+  }
+
+  .footer-logo img {
+    height: 70px;
+  }
+
+  .footer-top {
+    gap: 20px;
+    margin-bottom: 16px !important;
+  }
+
+  .footer-brand p,
+  .footer-col a,
+  .footer-contact p,
+  .footer-contact .footer-location {
+    font-size: 15px;
+    margin-bottom: 7px;
+  }
+
+  .footer-col a {
+    margin-bottom: 7px;
+  }
+
+  .footer-bottom {
+    padding-top: 12px !important;
+  }
+
+  .social-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .timeline-num {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .steps-grid,
+  .steps-grid--4,
+  .steps-grid--3,
+  .weekly-staples-grid,
+  .seasonal-grid,
+  .cs-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .lng-care-grid,
+  .lng-holistic-grid,
+  .lng-conditions-grid,
+  .lng-conditions-grid.two,
+  .lng-conditions-grid.three,
+  .lng-conditions-grid.four {
+    grid-template-columns: 1fr !important;
+  }
+
+  .csa-token-inner {
+    padding: 28px 16px !important;
+    gap: 24px !important;
+  }
+
+  .csa-token-tag {
+    font-size: clamp(18px, 5vw, 28px) !important;
+    letter-spacing: 4px !important;
+  }
+
+  .fee-image-overlay {
+    padding: 18px 16px !important;
+  }
+
+  .fee-overlay-text {
+    font-size: clamp(13px, 3.4vw, 16px) !important;
+  }
+
+  .hero-stat-num {
+    font-size: 28px;
+  }
+
+  .plan-badge {
+    white-space: normal;
+    font-size: 11px;
+  }
+
+  .fee-left {
+    padding: 24px 16px !important;
+  }
+}

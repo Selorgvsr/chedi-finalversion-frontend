@@ -1,0 +1,432 @@
+  <!-- ========== PREMIUM HOME PAGE ========== -->
+  <div class="page active" id="page-home">
+
+    <!-- SECTION 1 — CINEMATIC HERO -->
+    <section class="hp-hero" aria-label="Hero">
+      <div class="hp-hero-bg" role="img" aria-label="Organic farmland"></div>
+      <div class="hp-hero-overlay"></div>
+      <div class="hp-hero-particles" aria-hidden="true"></div>
+      <div class="hp-hero-content">
+        <div class="hp-hero-badge hp-reveal"><span class="hp-hero-badge-dot"></span>CHEDI – THE ORGANIC FARM</div>
+        <h1 class="hp-hero-title hp-reveal hp-reveal-delay-1">Rebuilding Agriculture.<br>Restoring <span>Health.</span><br>Creating Sustainable Wealth.</h1>
+        <p class="hp-hero-tagline hp-reveal hp-reveal-delay-2">From Farm to Family. From Land to Legacy.</p>
+        <p class="hp-hero-desc hp-reveal hp-reveal-delay-2">We connect families, farmers, and agricultural land through sustainable organic ecosystems.</p>
+        <div class="hp-btns hp-reveal hp-reveal-delay-3">
+          <button class="hp-btn hp-btn-primary" onclick="showPage('csa')">Join CSA</button>
+          <button class="hp-btn hp-btn-glass" onclick="showPage('projects')">Explore Farm Projects</button>
+        </div>
+        <div class="hp-hero-stats hp-reveal hp-reveal-delay-4">
+          <div class="hp-hero-stat"><div class="hp-hero-stat-num">100%</div><div class="hp-hero-stat-label">Organic Farming</div></div>
+          <div class="hp-hero-stat"><div class="hp-hero-stat-num">600</div><div class="hp-hero-stat-label">Sq Ft Family Plots</div></div>
+          <div class="hp-hero-stat"><div class="hp-hero-stat-num">Weekly</div><div class="hp-hero-stat-label">Farm Delivery</div></div>
+          <div class="hp-hero-stat"><div class="hp-hero-stat-num">Tech</div><div class="hp-hero-stat-label">Driven Agriculture</div></div>
+        </div>
+      </div>
+      <div class="hp-hero-visuals" aria-hidden="true">
+        <div class="hp-hero-visual"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/14786.jpg" alt="" loading="lazy"></div>
+        <div class="hp-hero-visual"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&q=80" alt="" loading="lazy"></div>
+        <div class="hp-hero-visual"><img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=200&q=80" alt="" loading="lazy"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 1b — VIDEO SHOWCASE -->
+    <section class="hp-video-showcase" aria-label="Featured videos">
+      <div class="hp-video-showcase-inner">
+        <button type="button" class="hp-video-showcase-video hp-reveal" data-vimeo-id="1150353500" aria-label="Play CHEDI farm video">
+          <div class="hp-video-showcase-embed">
+            <iframe src="https://player.vimeo.com/video/1150353500?title=0&byline=0&portrait=0&background=1&autoplay=1&loop=1&muted=1" allow="autoplay; fullscreen; picture-in-picture" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
+          <span class="hp-video-showcase-play" aria-hidden="true"><span class="hp-video-showcase-play-icon"></span></span>
+        </button>
+        <div class="hp-video-showcase-center hp-reveal hp-reveal-delay-1">
+          <div class="hp-video-showcase-logo">
+            <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/chedilogo.png" alt="CHEDI The Organic Farm">
+          </div>
+        </div>
+        <button type="button" class="hp-video-showcase-video hp-reveal hp-reveal-delay-2" data-vimeo-id="1150355952" aria-label="Play CHEDI farm video">
+          <div class="hp-video-showcase-embed">
+            <iframe src="https://player.vimeo.com/video/1150355952?title=0&byline=0&portrait=0&background=1&autoplay=1&loop=1&muted=1" allow="autoplay; fullscreen; picture-in-picture" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
+          <span class="hp-video-showcase-play" aria-hidden="true"><span class="hp-video-showcase-play-icon"></span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Video lightbox -->
+    <div class="hp-video-modal" id="hp-video-modal" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+      <div class="hp-video-modal-backdrop" data-hp-video-close></div>
+      <div class="hp-video-modal-dialog">
+        <button type="button" class="hp-video-modal-close" aria-label="Close video" data-hp-video-close>&times;</button>
+        <div class="hp-video-modal-player"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 — WHAT IS CHEDI -->
+    <section class="hp-what" id="hp-what">
+      <div class="hp-container">
+        <div class="hp-what-grid">
+          <div class="hp-collage hp-reveal">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80" alt="Organic vegetables" loading="lazy">
+            <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/14786.jpg" alt="Farmer harvesting crops" loading="lazy">
+            <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/Gemini_Generated_Image_2j19m82j19m82j19.png" alt="Drone monitoring farmland" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=400&q=80" alt="Healthy family eating organic food" loading="lazy">
+          </div>
+          <div class="hp-reveal hp-reveal-delay-2">
+            <span class="hp-section-tag">About CHEDI</span>
+            <h2 class="hp-heading">What is CHEDI?</h2>
+            <p class="hp-sub">CHEDI is an integrated agricultural ecosystem that connects families, farmers, and farmland through sustainable organic farming.</p>
+            <p class="hp-sub" style="margin-top:16px;font-weight:600;color:var(--hp-forest)">Our mission:</p>
+            <ul class="hp-mission-list">
+              <li>Provide healthy food</li>
+              <li>Improve farmer income</li>
+              <li>Restore agricultural land</li>
+              <li>Build long-term wellness</li>
+            </ul>
+            <div class="hp-features-grid">
+              <div class="hp-glass-card hp-feature-mini"><div class="icon">🌱</div><h4>Organic Cultivation</h4></div>
+              <div class="hp-glass-card hp-feature-mini"><div class="icon">🚜</div><h4>Smart Agriculture</h4></div>
+              <div class="hp-glass-card hp-feature-mini"><div class="icon">👨‍🌾</div><h4>Farmer Empowerment</h4></div>
+              <div class="hp-glass-card hp-feature-mini"><div class="icon">🌍</div><h4>Sustainable Ecosystem</h4></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 — OUR ECOSYSTEM -->
+    <section class="hp-ecosystem">
+      <div class="hp-container" style="text-align:center">
+        <span class="hp-section-tag hp-reveal">Our Ecosystem</span>
+        <h2 class="hp-heading hp-reveal">One Ecosystem. Four Powerful Solutions.</h2>
+        <div class="hp-eco-grid">
+          <div class="hp-eco-card hp-reveal" onclick="showPage('csa')">
+            <div class="hp-eco-card-img"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80" alt="Fresh harvested vegetables" loading="lazy"></div>
+            <div class="hp-eco-card-body"><div class="hp-eco-card-icon">🥬</div><h3>CSA</h3><p>Community Supported Agriculture — fresh organic produce delivered weekly to your family.</p></div>
+          </div>
+          <div class="hp-eco-card hp-reveal hp-reveal-delay-1" onclick="showPage('land')">
+            <div class="hp-eco-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/9355.jpg" alt="Aerial farmland plots" loading="lazy"></div>
+            <div class="hp-eco-card-body"><div class="hp-eco-card-icon">🌍</div><h3>Agri-Land</h3><p>Transform your agricultural land into productive, sustainable organic farmland.</p></div>
+          </div>
+          <div class="hp-eco-card hp-reveal hp-reveal-delay-2" onclick="showPage('farmer')">
+            <div class="hp-eco-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/14786.jpg" alt="Farmer using technology" loading="lazy"></div>
+            <div class="hp-eco-card-body"><div class="hp-eco-card-icon">👨‍🌾</div><h3>Farmer-Growth</h3><p>Empowering farmers with technology, training, and market access for sustainable growth.</p></div>
+          </div>
+          <div class="hp-eco-card hp-reveal hp-reveal-delay-3" onclick="showPage('projects')">
+            <div class="hp-eco-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/72991.jpg" alt="Organized farm layout" loading="lazy"></div>
+            <div class="hp-eco-card-body"><div class="hp-eco-card-icon">📋</div><h3>Projects</h3><p>Explore premium organic farm plots across Tamil Nadu — reserve your dedicated plot today.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 — CSA HIGHLIGHT -->
+    <section class="hp-csa">
+      <div class="hp-csa-leaves" aria-hidden="true">🌿</div>
+      <div class="hp-container">
+        <div class="hp-csa-grid">
+          <div class="hp-csa-visual hp-reveal">
+            <div class="hp-csa-img">
+              <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/72991.jpg" alt="Premium organic vegetable basket with farmer" loading="lazy">
+              <div class="hp-csa-img-overlay">
+                <h3 class="hp-csa-overlay-title">Become a Member</h3>
+                <p class="hp-csa-overlay-desc">As a token of love, we send a basket of fresh vegetables as a welcome gift.</p>
+                <p class="hp-csa-overlay-headline">Let's Save the Next Generation</p>
+              </div>
+            </div>
+            <div class="hp-csa-plot-card">
+              <div class="hp-csa-plot-eyebrow">SEE WHERE YOUR FOOD GROWS</div>
+              <h3 class="hp-csa-plot-title">Your Personal Farm Plot</h3>
+              <p class="hp-csa-plot-desc">A dedicated plot of fertile, organic farmland reserved exclusively for you and your family. Fresh, chemical-free vegetables are cultivated with care by experienced farmers, ensuring a healthy and sustainable food source without any effort on your part.</p>
+            </div>
+          </div>
+          <div class="hp-csa-content hp-reveal hp-reveal-delay-2">
+            <span class="hp-section-tag hp-csa-tag">Community Supported Agriculture</span>
+            <h2 class="hp-heading">Eat Safe. Live Long.</h2>
+            <p class="hp-csa-lead">Fresh crops, direct from farm to your table. Through Farm Club membership, your food is grown with care and planning — one subscription manages the entire journey from soil preparation to weekly delivery.</p>
+            <div class="hp-csa-stats">
+              <div class="hp-csa-stat">
+                <span class="hp-csa-stat-num">600 sq ft</span>
+                <span class="hp-csa-stat-label">Your Dedicated Plot</span>
+              </div>
+              <div class="hp-csa-stat">
+                <span class="hp-csa-stat-num">Lab Tested</span>
+                <span class="hp-csa-stat-label">Farm Products</span>
+              </div>
+              <div class="hp-csa-stat">
+                <span class="hp-csa-stat-num">40+</span>
+                <span class="hp-csa-stat-label">Seasonal Varieties</span>
+              </div>
+              <div class="hp-csa-stat">
+                <span class="hp-csa-stat-num">7 Days</span>
+                <span class="hp-csa-stat-label">Soil to Doorstep</span>
+              </div>
+            </div>
+            <ul class="hp-benefits">
+              <li><span class="check">✔</span> Dedicated 600 Sq Ft Plot</li>
+              <li><span class="check">✔</span> Chemical-Free Produce</li>
+              <li><span class="check">✔</span> Weekly Delivery</li>
+              <li><span class="check">✔</span> Lab-Tested Vegetables</li>
+              <li><span class="check">✔</span> App Monitoring</li>
+              <li><span class="check">✔</span> 6–8 Vegetable Varieties Per Week</li>
+              <li><span class="check">✔</span> Monthly Lab Test Certificate</li>
+              <li><span class="check">✔</span> Fully Managed by Expert Farmers</li>
+            </ul>
+            <div class="hp-glass-card hp-app-mockup">
+              <div class="hp-app-mockup-header"><span class="hp-app-mockup-dot"></span> CHEDI Farm Tracker</div>
+              <div class="hp-app-stat-row"><span>Plot Status</span><span>Active</span></div>
+              <div class="hp-app-stat-row"><span>Next Harvest</span><span>3 Days</span></div>
+              <div class="hp-app-stat-row"><span>Delivery</span><span>Scheduled</span></div>
+              <div class="hp-app-stat-row"><span>Soil Health</span><span>Excellent</span></div>
+            </div>
+            <div class="hp-csa-trust">
+              <span class="hp-csa-trust-item"><span class="hp-csa-trust-icon" aria-hidden="true">🌾</span> Non-GMO Seeds</span>
+              <span class="hp-csa-trust-item"><span class="hp-csa-trust-icon" aria-hidden="true">💧</span> Clean Water</span>
+              <span class="hp-csa-trust-item"><span class="hp-csa-trust-icon" aria-hidden="true">🌱</span> Pesticide Free</span>
+              <span class="hp-csa-trust-item"><span class="hp-csa-trust-icon" aria-hidden="true">🧪</span> Lab Certified</span>
+              <span class="hp-csa-trust-item"><span class="hp-csa-trust-icon" aria-hidden="true">🚚</span> Weekly Delivery</span>
+              <span class="hp-csa-trust-item"><span class="hp-csa-trust-icon" aria-hidden="true">🤝</span> No Middlemen</span>
+            </div>
+            <div class="hp-btns">
+              <button class="hp-btn hp-btn-primary" onclick="showPage('csa')">Become a Member</button>
+              <button class="hp-btn hp-btn-outline" onclick="showPage('contact')">Download App</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — AGRI-LAND SOLUTIONS -->
+    <section class="hp-agriland">
+      <div class="hp-agriland-overlay"></div>
+      <div class="hp-container" style="text-align:center">
+        <span class="hp-section-tag hp-reveal">Agri-Land</span>
+        <h2 class="hp-heading hp-reveal">Agricultural Land Solutions</h2>
+        <p class="hp-sub center hp-reveal">Premium real-estate investment opportunities in sustainable organic agriculture.</p>
+        <div class="hp-land-grid">
+          <div class="hp-land-card hp-reveal" onclick="showPage('contact')">
+            <div class="hp-land-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/Gemini_Generated_Image_1gg5261gg5261gg5.png" alt="Land sale consultation" loading="lazy"></div>
+            <div class="hp-land-card-body"><h3>Sell Land</h3></div>
+          </div>
+          <div class="hp-land-card hp-reveal hp-reveal-delay-1" onclick="showPage('land')">
+            <div class="hp-land-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/9355.jpg" alt="Cultivated farmland" loading="lazy"></div>
+            <div class="hp-land-card-body"><h3>Lease Land</h3></div>
+          </div>
+          <div class="hp-land-card hp-reveal hp-reveal-delay-2" onclick="showPage('contact')">
+            <div class="hp-land-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/7581.jpg" alt="Business partnership on farmland" loading="lazy"></div>
+            <div class="hp-land-card-body"><h3>Partner With Us</h3></div>
+          </div>
+        </div>
+        <div class="hp-btns center hp-reveal">
+          <button class="hp-btn hp-btn-gold" onclick="showPage('contact')">Partner With CHEDI</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 — FARMER GROWTH -->
+    <section class="hp-farmer">
+      <div class="hp-container" style="text-align:center">
+        <span class="hp-section-tag hp-reveal" style="color:var(--hp-gold)">Farmer-Growth</span>
+        <h2 class="hp-heading hp-reveal">Helping Farmers Grow Sustainably</h2>
+        <div class="hp-farmer-grid">
+          <div class="hp-farmer-card hp-reveal">
+            <div class="hp-farmer-card-img"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=128&q=80" alt="Organic Seeds" loading="lazy"></div>
+            <h4>Organic Seeds</h4><p>Certified non-GMO seed distribution</p>
+          </div>
+          <div class="hp-farmer-card hp-reveal hp-reveal-delay-1">
+            <div class="hp-farmer-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/7581.jpg" alt="Organic Manure" loading="lazy"></div>
+            <h4>Organic Manure</h4><p>Natural soil enrichment programs</p>
+          </div>
+          <div class="hp-farmer-card hp-reveal hp-reveal-delay-2">
+            <div class="hp-farmer-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/Gemini_Generated_Image_gcem5xgcem5xgcem.png" alt="Farm Analytics" loading="lazy"></div>
+            <h4>Farm Analytics</h4><p>Data-driven crop management</p>
+          </div>
+          <div class="hp-farmer-card hp-reveal">
+            <div class="hp-farmer-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/Gemini_Generated_Image_2j19m82j19m82j19.png" alt="Drone Agriculture" loading="lazy"></div>
+            <h4>Drone Agriculture</h4><p>Aerial monitoring &amp; precision farming</p>
+          </div>
+          <div class="hp-farmer-card hp-reveal hp-reveal-delay-1">
+            <div class="hp-farmer-card-img"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=128&q=80" alt="Smart Irrigation" loading="lazy"></div>
+            <h4>Smart Irrigation</h4><p>Water-efficient automated systems</p>
+          </div>
+          <div class="hp-farmer-card hp-reveal hp-reveal-delay-2">
+            <div class="hp-farmer-card-img"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/14786.jpg" alt="Market Access" loading="lazy"></div>
+            <h4>Market Access</h4><p>Direct-to-consumer supply chains</p>
+          </div>
+        </div>
+        <div class="hp-btns center hp-reveal">
+          <button class="hp-btn hp-btn-gold" onclick="showPage('farmer')">Become a Farmer Partner</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 — HOW CHEDI WORKS -->
+    <section class="hp-timeline">
+      <div class="hp-container" style="text-align:center">
+        <span class="hp-section-tag hp-reveal">Process</span>
+        <h2 class="hp-heading hp-reveal">How CHEDI Works</h2>
+        <div class="hp-timeline-track">
+          <div class="hp-step hp-reveal"><div class="hp-step-num">1</div><h4>Join CHEDI</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">2</div><h4>Membership</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">3</div><h4>Select Plot</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">4</div><h4>Soil Preparation</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">5</div><h4>Seed Distribution</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">6</div><h4>Cultivation</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">7</div><h4>Monitoring</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">8</div><h4>Harvest</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">9</div><h4>Quality Testing</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">10</div><h4>Delivery</h4></div>
+          <div class="hp-step hp-reveal"><div class="hp-step-num">11</div><h4>Better Health &amp; Income</h4></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8 — FEATURED PROJECTS -->
+    <section class="hp-projects">
+      <div class="hp-container" style="text-align:center">
+        <span class="hp-section-tag hp-reveal">Farm Projects</span>
+        <h2 class="hp-heading hp-reveal">Choose Your Organic Farm Plot</h2>
+        <div class="hp-project-grid">
+          <div class="hp-project-card hp-reveal" onclick="showPage('projects')">
+            <div class="hp-project-img">
+              <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/72991.jpg" alt="Sivaganga-1" loading="lazy">
+              <div class="hp-project-overlay"><button class="hp-btn hp-btn-glass" onclick="event.stopPropagation();showPage('projects')">View Project</button></div>
+            </div>
+            <div class="hp-project-body">
+              <h3>📍 Sivaganga-1</h3>
+              <div class="hp-project-meta"><span class="hp-badge hp-badge-available">Available</span><span>600 Sq Ft</span></div>
+            </div>
+          </div>
+          <div class="hp-project-card hp-reveal hp-reveal-delay-1" onclick="showPage('projects')">
+            <div class="hp-project-img">
+              <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&q=80" alt="Sivaganga-2" loading="lazy">
+              <div class="hp-project-overlay"><button class="hp-btn hp-btn-glass" onclick="event.stopPropagation();showPage('projects')">View Project</button></div>
+            </div>
+            <div class="hp-project-body">
+              <h3>📍 Sivaganga-2</h3>
+              <div class="hp-project-meta"><span class="hp-badge hp-badge-soon">Coming Soon</span><span>600 Sq Ft</span></div>
+            </div>
+          </div>
+          <div class="hp-project-card hp-reveal hp-reveal-delay-2" onclick="showPage('projects')">
+            <div class="hp-project-img">
+              <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80" alt="Pudukkottai-1" loading="lazy">
+              <div class="hp-project-overlay"><button class="hp-btn hp-btn-glass" onclick="event.stopPropagation();showPage('projects')">View Project</button></div>
+            </div>
+            <div class="hp-project-body">
+              <h3>📍 Pudukkottai-1</h3>
+              <div class="hp-project-meta"><span class="hp-badge hp-badge-soon">Coming Soon</span><span>600 Sq Ft</span></div>
+            </div>
+          </div>
+          <div class="hp-project-card hp-reveal hp-reveal-delay-3" onclick="showPage('projects')">
+            <div class="hp-project-img">
+              <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&q=80" alt="Pudukkottai-2" loading="lazy">
+              <div class="hp-project-overlay"><button class="hp-btn hp-btn-glass" onclick="event.stopPropagation();showPage('projects')">View Project</button></div>
+            </div>
+            <div class="hp-project-body">
+              <h3>📍 Pudukkottai-2</h3>
+              <div class="hp-project-meta"><span class="hp-badge hp-badge-soon">Coming Soon</span><span>600 Sq Ft</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="hp-btns center hp-reveal" style="margin-top:40px">
+          <button class="hp-btn hp-btn-primary" onclick="openChoosePlot()">Choose Plot</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9 — FARM PLOT RESERVATION CTA -->
+    <section class="hp-reserve">
+      <div class="hp-reserve-bg" role="img" aria-label="Drone aerial farmland at golden hour"></div>
+      <div class="hp-reserve-overlay"></div>
+      <div class="hp-reserve-map" aria-hidden="true"></div>
+      <div class="hp-container">
+        <h2 class="hp-heading hp-reveal">Reserve Your Farm Plot Today</h2>
+        <p class="hp-sub light center hp-reveal">Secure your dedicated organic farm plot and begin your sustainable farming journey.</p>
+        <div class="hp-btns center hp-reveal">
+          <button class="hp-btn hp-btn-gold" onclick="showPage('projects')">Choose Plot</button>
+          <button class="hp-btn hp-btn-glass" onclick="showPage('projects')">View Projects</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10 — WELLNESS & LONGEVITY -->
+    <section class="hp-wellness" id="hp-wellness">
+      <div class="hp-wellness-overlay"></div>
+      <div class="hp-container">
+        <span class="hp-section-tag hp-reveal">Wellness</span>
+        <h2 class="hp-heading hp-reveal">Food Today. Health Tomorrow.</h2>
+        <div class="hp-wellness-grid">
+          <div class="hp-glass-card hp-wellness-card hp-reveal"><div class="emoji">❤️</div><h4>Heart Health</h4></div>
+          <div class="hp-glass-card hp-wellness-card hp-reveal hp-reveal-delay-1"><div class="emoji">🧠</div><h4>Brain Function</h4></div>
+          <div class="hp-glass-card hp-wellness-card hp-reveal hp-reveal-delay-2"><div class="emoji">🛡</div><h4>Immunity</h4></div>
+          <div class="hp-glass-card hp-wellness-card hp-reveal"><div class="emoji">⚡</div><h4>Energy</h4></div>
+          <div class="hp-glass-card hp-wellness-card hp-reveal hp-reveal-delay-1"><div class="emoji">🌱</div><h4>Healthy Aging</h4></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12 — WHY CHEDI -->
+    <section class="hp-why">
+      <div class="hp-container" style="text-align:center">
+        <span class="hp-section-tag hp-reveal">Why CHEDI</span>
+        <h2 class="hp-heading hp-reveal">Built for a Healthier Future</h2>
+        <div class="hp-why-grid">
+          <div class="hp-glass-card hp-why-block hp-reveal"><div class="emoji">🌍</div><h3>Sustainable Agriculture</h3><p>Restoring soil health and biodiversity through proven organic farming practices.</p></div>
+          <div class="hp-glass-card hp-why-block hp-reveal hp-reveal-delay-1"><div class="emoji">👨‍🌾</div><h3>Farmer Empowerment</h3><p>Technology, training, and fair market access that transforms farmer livelihoods.</p></div>
+          <div class="hp-glass-card hp-why-block hp-reveal hp-reveal-delay-2"><div class="emoji">🥬</div><h3>Healthy Food</h3><p>Lab-tested, chemical-free produce delivered fresh from farm to your family.</p></div>
+          <div class="hp-glass-card hp-why-block hp-reveal hp-reveal-delay-3"><div class="emoji">📈</div><h3>Long-Term Value Creation</h3><p>Agricultural investments that grow in value while building generational wealth.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 15 — FINAL EMOTIONAL CTA -->
+    <section class="hp-final">
+      <div class="hp-final-bg" role="img" aria-label="Happy farmer family with fresh vegetables"></div>
+      <div class="hp-final-overlay"></div>
+      <div class="hp-final-leaves" aria-hidden="true"></div>
+      <div class="hp-container">
+        <h2 class="hp-heading hp-reveal">Save Your Family.<br>Save The Next Generation.</h2>
+        <p class="hp-sub light hp-reveal">Join CHEDI and become part of a healthier agricultural future.</p>
+        <div class="hp-btns center hp-reveal">
+          <button class="hp-btn hp-btn-gold" onclick="showPage('csa')">Join CSA</button>
+          <button class="hp-btn hp-btn-glass" onclick="showPage('projects')">Explore Projects</button>
+          <button class="hp-btn hp-btn-glass" onclick="showPage('contact')">Contact Us</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="logo footer-logo" onclick="showPage('home')" style="gap:0;display:inline-block;"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/chedilogo.png" alt="Chedi The Organic Farm"></a>
+            <p>Rebuilding agriculture through sustainable ecosystems.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4><a onclick="showPage(&#39;about&#39;)">About Us</a><a
+              onclick="showPage(&#39;land&#39;)">Agri-Land</a><a onclick="showPage(&#39;farmer&#39;)">Farmer-Growth</a><a
+              onclick="showPage(&#39;csa&#39;)">CSA</a><a onclick="showPage(&#39;contact&#39;)">Contact Us</a>
+          </div>
+          <div class="footer-col footer-contact">
+            <h4>Contact</h4>
+            <p>📧 support@chedi.in</p>
+            <p>📞 +91 94441 26240</p>
+          </div>
+          <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <div class="social-icon">𝕏</div>
+              <div class="social-icon">in</div>
+              <div class="social-icon">f</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 CHEDI – The Organic Farm.</p>
+          <div class="footer-legal-links"><a href="/terms-and-conditions" class="footer-legal-link"
+              onclick="navigateLegal(event,'terms','/terms-and-conditions')">Terms &amp; Conditions</a><span
+              class="footer-legal-sep">|</span><a href="/privacy-policy" class="footer-legal-link"
+              onclick="navigateLegal(event,'privacy','/privacy-policy')">Privacy Policy</a></div>
+        </div>
+      </div>
+    </footer>
+  </div>

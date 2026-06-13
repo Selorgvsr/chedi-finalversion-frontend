@@ -1,0 +1,412 @@
+/* ── FARM LISTING PAGE ─────────────────────────────────── */
+
+#page-farm-listing {
+  background: var(--beige);
+}
+
+.fl-back {
+  position: fixed;
+  top: 90px;
+  left: 24px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--green-dark);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(201, 150, 62, 0.35);
+  border-radius: 40px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.fl-back:hover {
+  background: var(--green-dark);
+  color: var(--gold);
+  border-color: var(--green-dark);
+}
+
+.fl-section {
+  padding: 100px 48px 80px;
+  background: var(--beige);
+}
+
+.fl-section-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.fl-section-header-text {
+  flex: 1;
+}
+
+.fl-section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-left: 3px solid var(--gold);
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+
+.fl-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  color: var(--green-dark);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.fl-section-sub {
+  font-size: 16px;
+  color: var(--text-light);
+  font-weight: 400;
+  line-height: 1.65;
+  max-width: 560px;
+}
+
+.fl-section-count {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--green-dark);
+  opacity: 0.07;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fl-banner {
+  width: 100%;
+  height: 340px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 52px;
+  position: relative;
+}
+
+.fl-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.fl-banner:hover img {
+  transform: scale(1.03);
+}
+
+.fl-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(13, 40, 24, 0.65) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 36px 40px;
+}
+
+.fl-banner-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: var(--white);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.fl-banner-label span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.fl-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.fl-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(26, 58, 42, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fl-card.fl-card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fl-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(26, 58, 42, 0.2);
+}
+
+.fl-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.fl-card-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fl-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.fl-card:hover .fl-card-img img {
+  transform: scale(1.08);
+}
+
+.fl-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--green-dark);
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  z-index: 3;
+}
+
+.fl-card-status {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  z-index: 3;
+}
+
+.fl-card-status--available {
+  background: var(--green-accent);
+  color: var(--white);
+}
+
+.fl-card-coming-soon-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 40, 24, 0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fl-card-coming-soon-ribbon {
+  background: var(--green-dark);
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(201, 150, 62, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transform: rotate(-4deg);
+}
+
+.fl-card--coming-soon {
+  cursor: default;
+}
+
+.fl-card--coming-soon.fl-card-visible {
+  opacity: 0.82;
+}
+
+.fl-card--coming-soon:hover {
+  transform: translateY(0);
+  box-shadow: 0 4px 24px rgba(26, 58, 42, 0.1);
+}
+
+.fl-card--coming-soon:hover .fl-card-img img {
+  transform: none;
+}
+
+.fl-card--coming-soon:focus-visible {
+  outline: none;
+}
+
+.fl-card-body {
+  padding: 20px 20px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fl-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.fl-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.fl-card-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.fl-card-meta-row strong {
+  font-weight: 600;
+  color: var(--text-dark);
+  min-width: 52px;
+}
+
+.fl-card-meta-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.fl-card-divider {
+  height: 1px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  margin-bottom: 16px;
+  opacity: 0.35;
+}
+
+.fl-card-footer {
+  margin-top: auto;
+}
+
+.fl-btn-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  text-decoration: none;
+  border: 1.5px solid var(--green-mid);
+  border-radius: 40px;
+  padding: 8px 18px;
+  transition: all 0.25s;
+  cursor: pointer;
+  background: transparent;
+}
+
+.fl-btn-view:hover:not(:disabled) {
+  background: var(--green-dark);
+  color: var(--gold);
+  border-color: var(--green-dark);
+}
+
+.fl-btn-view:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  color: var(--text-light);
+  border-color: rgba(26, 74, 46, 0.25);
+}
+
+.fl-btn-view svg {
+  width: 12px;
+  height: 12px;
+}
+
+@media (max-width: 1200px) {
+  .fl-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .fl-section {
+    padding: 90px 24px 60px;
+  }
+
+  .fl-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .fl-section-count {
+    font-size: 48px;
+  }
+
+  .fl-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .fl-banner {
+    height: 260px;
+  }
+
+  .fl-back {
+    top: 80px;
+    left: 16px;
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .fl-banner-overlay {
+    padding: 24px;
+  }
+
+  .fl-banner-label {
+    font-size: 22px;
+  }
+}

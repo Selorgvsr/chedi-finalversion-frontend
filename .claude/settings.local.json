@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '/footer-bottom/,/\\\\/footer/' \"C:\\\\Users\\\\lmhfa\\\\Desktop\\\\chedi-main\\\\main.html\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\lmhfa\\\\Desktop\\\\chedi-main\" -Recurse -Force)",
+      "Bash(Select-Object -First 100 FullName)",
+      "Bash(ConvertTo-Json)",
+      "Bash(python3)",
+      "mcp__Claude_Preview__preview_start",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\lmhfa\\\\Desktop\\\\chedi-main\" -Force | ForEach-Object { [PSCustomObject]@{Name=$_.Name; Type=if\\($_.PSIsContainer\\){\"DIR\"}else{\"FILE\"}} } | Format-Table -AutoSize)",
+      "Bash(ls \"C:\\\\Users\\\\lmhfa\\\\Desktop\\\\chedi-main\\\\\")",
+      "mcp__Claude_in_Chrome__navigate",
+      "Bash(pkill -f \"vite\")",
+      "Bash(grep -E \"\\\\.\\(html|css|js\\)$\")",
+      "Bash(awk '/^  <style>/{start=NR} /^  <\\\\/style>/{if\\(start==NR-1\\) print start\"-\"NR; if\\(NR==5167\\) print \"Line 5167: \"</style>\"; start=0}' \"C:\\\\Users\\\\lmhfa\\\\Desktop\\\\chedi-main\\\\main.html\")",
+      "Bash(timeout 5 npm run dev)",
+      "Bash(curl -s http://localhost:5174/main.html)",
+      "Bash(grep -E \"\\\\.css$\")",
+      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
+      "Bash(grep -E \"\\\\.js$\")",
+      "Bash(grep -E \"\\\\.md$\")"
+    ]
+  }
+}

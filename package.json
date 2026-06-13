@@ -1,0 +1,14 @@
+{
+  "name": "chedi-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Basic local setup for the CHEDI website static page",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.0"
+  }
+}

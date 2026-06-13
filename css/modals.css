@@ -1,0 +1,11 @@
+      #page-projects>*:not(.projects-ref-frame) {
+        display: none !important;
+      }
+
+      #page-projects .projects-ref-frame {
+        width: 100%;
+        min-height: 100vh;
+        border: 0;
+        display: block;
+        background: #fff;
+      }

@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CHEDI – Projects</title>
+  <link rel="icon" type="image/png" href="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/chedilogo.png?v=1">
+  <link rel="shortcut icon" type="image/png" href="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/chedilogo.png?v=1">
+  <link rel="apple-touch-icon" href="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/chedilogo.png?v=1">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── DESIGN TOKENS ─────────────────────────────────── */
+    :root {
+      --green-dark:   #1a3a2a;
+      --green-mid:    #265c3a;
+      --green-light:  #3a7d54;
+      --green-accent: #04e304;
+      --gold:         #c9a84c;
+      --gold-light:   #e8c97a;
+      --beige:        #f5f0e8;
+      --beige-dark:   #ede5d4;
+      --white:        #ffffff;
+      --text-dark:    #1a2214;
+      --text-muted:   #5a6b52;
+      --shadow-soft:  0 4px 24px rgba(26,58,42,0.10);
+      --shadow-hover: 0 12px 40px rgba(26,58,42,0.20);
+      --radius-card:  16px;
+      --radius-img:   12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--beige);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV BAR ───────────────────────────────────────── */
+    .nav {
+      background: var(--green-dark);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+    .nav-logo span { color: var(--white); font-weight: 400; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    /* ── HAMBURGER MENU BUTTON ─────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 101;
+    }
+    .nav-hamburger span {
+      width: 24px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    .nav-hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+    }
+    .nav-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* ── MOBILE NAV DRAWER ─────────────────────────────── */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: var(--green-dark);
+      flex-direction: column;
+      list-style: none;
+      z-index: 99;
+      max-height: calc(100vh - 70px);
+      overflow-y: auto;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .nav-drawer.open {
+      transform: translateY(0);
+    }
+    .nav-drawer li {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav-drawer a {
+      display: block;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 16px 24px;
+      transition: all 0.2s ease;
+    }
+    .nav-drawer a:hover, .nav-drawer a.active {
+      color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      padding-left: 32px;
+    }
+
+    /* ── PAGE HERO (height aligned with CSA hero) ─────── */
+    .page-hero {
+      background: var(--green-dark);
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 70px;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/Gemini_Generated_Image_mz92aqmz92aqmz92.png') center center / cover no-repeat;
+      z-index: 0;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 85% 75% at 50% 42%, rgba(4, 14, 8, 0.58) 0%, rgba(13, 40, 24, 0.34) 55%, transparent 100%),
+        linear-gradient(160deg, rgba(4, 14, 8, 0.30) 0%, rgba(13, 40, 24, 0.22) 55%, rgba(26, 74, 46, 0.12) 100%);
+      z-index: 0;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 80px 40px;
+    }
+    .page-hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 40px;
+      margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.35);
+    }
+    .page-hero h1 em { color: var(--gold); font-style: normal; }
+    .page-hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.82);
+      max-width: 560px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.7;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ── SECTION WRAPPER ───────────────────────────────── */
+    .section {
+      padding: 80px 48px;
+    }
+    .section:nth-child(odd) { background: var(--beige); }
+    .section:nth-child(even) { background: var(--beige-dark); }
+
+    /* ── SECTION HEADER ────────────────────────────────── */
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .section-header-text { flex: 1; }
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-left: 3px solid var(--gold);
+      padding-left: 12px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 600;
+      color: var(--green-dark);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.65;
+      max-width: 480px;
+    }
+    .section-count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: var(--green-dark);
+      opacity: 0.07;
+      line-height: 1;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── BANNER IMAGE ──────────────────────────────────── */
+    .section-banner {
+      width: 100%;
+      height: 340px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 52px;
+      position: relative;
+    }
+    .section-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .section-banner:hover img { transform: scale(1.03); }
+    .section-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(26,58,42,0.6) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 36px 40px;
+    }
+    .section-banner-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--white);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .section-banner-label span {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    /* ── CARD GRID ─────────────────────────────────────── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    /* ── PROJECT CARD ──────────────────────────────────── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(201,168,76,0.12);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .card:hover .card-img img { transform: scale(1.08); }
+    .card-img-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--green-dark);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .card-body { padding: 20px 20px 24px; flex: 1; display: flex; flex-direction: column; }
+    .card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .card-meta { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+    .card-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .card-meta-row strong {
+      font-weight: 600;
+      color: var(--text-dark);
+      min-width: 46px;
+    }
+    .card-meta-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .card-divider {
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin-bottom: 16px;
+      opacity: 0.35;
+    }
+    .card-footer { margin-top: auto; }
+    .btn-view {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      text-decoration: none;
+      border: 1.5px solid var(--green-mid);
+      border-radius: 40px;
+      padding: 8px 18px;
+      transition: all 0.25s;
+      cursor: pointer;
+      background: transparent;
+    }
+    .btn-view:hover {
+      background: var(--green-dark);
+      color: var(--gold);
+      border-color: var(--green-dark);
+    }
+    .btn-view svg { width: 12px; height: 12px; }
+
+    .csa-farm-card--available {
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .csa-farm-card--available:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .csa-farm-card--available:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .csa-farm-card--coming-soon {
+      cursor: default;
+      opacity: 0.82;
+      pointer-events: none;
+    }
+
+    .csa-farm-card--coming-soon:hover {
+      transform: none;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .csa-farm-card--coming-soon:hover .card-img img {
+      transform: none;
+    }
+
+    .csa-farm-card--coming-soon:focus-visible {
+      outline: none;
+    }
+
+    .btn-view:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .btn-view:disabled:hover {
+      background: transparent;
+      color: var(--green-mid);
+      border-color: var(--green-mid);
+    }
+
+    /* ── SECTION DIVIDER ───────────────────────────────── */
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0.3;
+      margin: 0 48px;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────── */
+    footer {
+      background: var(--white);
+      padding: 36px 40px 18px;
+      border-top: 1px solid rgba(64, 145, 108, 0.15);
+      color: var(--green-mid);
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 24px;
+      align-items: start;
+    }
+
+    .footer-brand p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--green-mid);
+      margin-top: 10px;
+      max-width: 300px;
+    }
+
+    .footer-brand .social-icons {
+      margin-top: 12px;
+    }
+
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 16px;
+      line-height: 1.45;
+      color: var(--green-mid);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color .2s;
+      text-decoration: none;
+    }
+
+    .footer-col a:hover {
+      color: var(--green-accent);
+    }
+
+    .footer-contact p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--green-mid);
+      margin-bottom: 7px;
+    }
+
+    .footer-contact .footer-location {
+      margin-top: 8px;
+      margin-bottom: 0;
+      color: var(--green-mid);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(64, 145, 108, 0.12);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-bottom p {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--green-mid);
+    }
+
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-legal-link {
+      font-size: 15px;
+      color: var(--green-mid);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color .2s;
+      letter-spacing: .2px;
+    }
+
+    .footer-legal-link:hover {
+      color: var(--green-accent);
+    }
+
+    .footer-legal-sep {
+      font-size: 12px;
+      color: var(--green-accent);
+      opacity: 0.45;
+      user-select: none;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(64, 145, 108, 0.08);
+      border: 1px solid rgba(64, 145, 108, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .2s;
+      font-size: 14px;
+      color: var(--green-mid);
+    }
+
+    .social-icon:hover {
+      background: var(--green-accent);
+      border-color: var(--green-accent);
+      color: var(--white);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .footer-logo img {
+      height: 88px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .cards-grid { grid-template-columns: repeat(3, 1fr); }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+    }
+    @media (max-width: 860px) {
+      .section { padding: 56px 24px; }
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-drawer { display: flex; }
+      .section-header { flex-direction: column; gap: 0; align-items: flex-start; }
+      .section-count { display: none; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .section-banner { height: 240px; }
+      .page-hero-content { padding: 56px 24px; }
+      .page-hero::after {
+        background:
+          radial-gradient(ellipse 90% 80% at 50% 40%, rgba(4, 14, 8, 0.62) 0%, rgba(13, 40, 24, 0.38) 55%, transparent 100%),
+          linear-gradient(160deg, rgba(4, 14, 8, 0.34) 0%, rgba(13, 40, 24, 0.26) 55%, rgba(26, 74, 46, 0.16) 100%);
+      }
+
+      footer {
+        padding: 28px 20px 16px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo img {
+        height: 76px;
+      }
+
+      .footer-brand p {
+        margin-top: 8px;
+      }
+
+      .footer-brand .social-icons {
+        margin-top: 10px;
+      }
+
+      .footer-brand p,
+      .footer-col a,
+      .footer-contact p,
+      .footer-contact .footer-location {
+        font-size: 15px;
+      }
+
+      .footer-col h4 {
+        font-size: 11px;
+        margin-bottom: 12px;
+      }
+
+      .footer-col a,
+      .footer-contact p {
+        margin-bottom: 7px;
+      }
+
+      .footer-bottom {
+        padding-top: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer-bottom p,
+      .footer-legal-link {
+        font-size: 14px;
+      }
+    }
+    @media (max-width: 540px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .section-banner { height: 200px; }
+      .nav { padding: 0 16px; }
+      .section { padding: 48px 16px; }
+      .page-hero-content { padding: 48px 16px; }
+      .section-divider { margin: 0 16px; }
+
+      footer {
+        padding: 24px 16px 14px;
+      }
+
+      .footer-logo img {
+        height: 70px;
+      }
+
+      .footer-top {
+        gap: 20px;
+        margin-bottom: 16px;
+      }
+
+      .footer-brand p,
+      .footer-col a,
+      .footer-contact p,
+      .footer-contact .footer-location {
+        font-size: 15px;
+        margin-bottom: 7px;
+      }
+
+      .footer-col a {
+        margin-bottom: 7px;
+      }
+
+      .footer-bottom {
+        padding-top: 12px;
+      }
+
+      .social-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+      }
+    }
+
+    /* ── FADE-IN ANIMATION ─────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .section { animation: fadeUp 0.5s ease both; }
+    .card { animation: fadeUp 0.4s ease both; }
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.12s; }
+    .card:nth-child(3) { animation-delay: 0.19s; }
+    .card:nth-child(4) { animation-delay: 0.26s; }
+
+    .chedi-brand {
+      color: var(--green-light);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">CHEDI <span>Longevity</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#" class="active">Projects</a></li>
+    <li><a href="#">Farmers</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<ul class="nav-drawer" id="navDrawer">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#" class="active">Projects</a></li>
+  <li><a href="#">Farmers</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Our Work on the Ground</div>
+    <h1>Our <em>Projects</em></h1>
+    <p>From community-supported farms to independent farmer networks — explore every project CHEDI is nurturing across Tamil Nadu.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 1 · CSA PROJECTS
+═══════════════════════════════════════════════════════ -->
+<section class="section" id="csa">
+  <div class="section-header">
+    <div class="section-header-text">
+      <div class="section-tag">Section 01</div>
+      <h2 class="section-title">CSA Projects</h2>
+      <p class="section-sub">Community-supported farms delivering fresh and reliable produce directly from farmer to family.</p>
+    </div>
+    <div class="section-count">CSA</div>
+  </div>
+
+  <!-- Banner -->
+  <div class="section-banner">
+    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1400&q=85" alt="CSA Farmland Banner"/>
+    <div class="section-banner-overlay">
+      <div class="section-banner-label">
+        <span>Community Supported Agriculture</span>
+        Fresh crops. Direct from farm to your table.
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards-grid" id="csa-farm-cards">
+
+    <!-- Card 1 -->
+    <div class="card csa-farm-card csa-farm-card--available" data-farm-id="farm-1" data-available="true" role="link" tabindex="0">
+      <div class="card-img">
+        <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/72991.jpg" alt="Mullai crop farm"/>
+        <span class="card-img-badge">CSA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Farm 1</div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><strong style="font-size: 25px;">Sivaganga-1</strong> </div>
+          <div class="card-meta-row"><div class="card-meta-dot"></div><strong style="color: rgb(50, 252, 50);font-size: 20px;">Available</strong></div>
+          <!-- <div class="card-meta-row"><div class="card-meta-dot"></div><strong>District</strong> Theni</div> -->
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn-view" data-farm-id="farm-1">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card csa-farm-card csa-farm-card--coming-soon" data-farm-id="farm-2" data-available="false" aria-disabled="true">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&q=80" alt="Kurinji farm"/>
+        <span class="card-img-badge">CSA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Farm 2</div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><strong style="font-size: 25px;">Sivaganga-2</strong> </div>
+          <div class="card-meta-row"><div class="card-meta-dot"></div><strong style="color: rgb(50, 252, 50);font-size: 20px;">Comming Soon</strong></div>
+          <!-- <div class="card-meta-row"><div class="card-meta-dot"></div><strong>District</strong> Dindigul</div> -->
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn-view" data-farm-id="farm-2" disabled aria-disabled="true">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card csa-farm-card csa-farm-card--coming-soon" data-farm-id="farm-3" data-available="false" aria-disabled="true">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80" alt="Neithal farm"/>
+        <span class="card-img-badge">CSA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Farm 3</div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><strong style="font-size: 25px;">Pudukkottai-1</strong> </div>
+          <div class="card-meta-row"><div class="card-meta-dot"></div><strong style="color: rgb(50, 252, 50);font-size: 20px;">Comming Soon</strong></div>
+ 
+          <!-- <div class="card-meta-row"><div class="card-meta-dot"></div><strong>District</strong> Ramanathapuram</div> -->
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn-view" data-farm-id="farm-3" disabled aria-disabled="true">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card csa-farm-card csa-farm-card--coming-soon" data-farm-id="farm-4" data-available="false" aria-disabled="true">
+      <div class="card-img">
+        <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/Gemini_Generated_Image_1gg5261gg5261gg5.png" alt="Marudam farm"/>
+        <span class="card-img-badge">CSA</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Farm 4</div>
+        <div class="card-divider"></div>
+        <div class="card-methttpsa">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><strong style="font-size: 25px;">Pudukkottai-2</strong> </div>
+          <div class="card-meta-row"><div class="card-meta-dot"></div><strong style="color: rgb(50, 252, 50);font-size: 20px;">Comming Soon</strong></div>
+          <!-- <div class="card-meta-row"><div class="card-meta-dot"></div><strong>District</strong> Dindigul</div> -->
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn-view" data-farm-id="farm-4" disabled aria-disabled="true">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 2 · LAND PROJECTS
+═══════════════════════════════════════════════════════ -->
+<section class="section" id="land">
+  <div class="section-header">
+    <div class="section-header-text">
+      <div class="section-tag">Section 02</div>
+      <h2 class="section-title">Land Projects</h2>
+      <p class="section-sub">Farmland projects developed with careful planning and long-term farming growth in mind.</p>
+    </div>
+    <div class="section-count">LAND</div>
+  </div>
+
+  <!-- Banner -->
+  <div class="section-banner">
+    <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/brown-cow-eatting-grass.jpg" alt="Land Project Banner"/>
+    <div class="section-banner-overlay">
+      <div class="section-banner-label">
+        <span>Land Development Projects</span>
+        Building fertile ground for the next generation.
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards-grid">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=600&q=80" alt="Mango plantation"/>
+        <span class="card-img-badge">Land</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Project-1</div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+ 
+          <div class="card-meta-row"><div class="card-meta-dot"></div><span style="font-size: 25px;color: black;">District: Trichy</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-view">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?w=600&q=80" alt="Banana plantation"/>
+        <span class="card-img-badge">Land</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Project-2</div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><span style="font-size: 25px;color: black;">District: Dindigul</span></div>
+        
+        </div>
+        <div class="card-footer">
+          <button class="btn-view">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=600&q=80" alt="Coconut plantation"/>
+        <span class="card-img-badge">Land</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name"> Project-3</div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><span style="font-size: 25px;color: black;">District:Madurai</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-view">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?w=600&q=80" alt="Teak plantation"/>
+        <span class="card-img-badge">Land</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name"> Project-4</div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><span style="font-size: 25px;color: black;">District:Pudukkottai</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-view">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3 · FARMER PROJECTS
+═══════════════════════════════════════════════════════ -->
+<section class="section" id="farmer">
+  <div class="section-header">
+    <div class="section-header-text">
+      <div class="section-tag">Section 03</div>
+      <h2 class="section-title">Farmer Projects</h2>
+      <p class="section-sub">Independent farmers growing strong with hands-on expert support from the CHEDI team.</p>
+    </div>
+    <div class="section-count">FARM</div>
+  </div>
+
+  <!-- Banner -->
+  <div class="section-banner">
+    <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/2151479082.jpg" alt="Farmer Banner"/>
+    <div class="section-banner-overlay">
+      <div class="section-banner-label">
+        <span>Independent Farmer Projects</span>
+        People and land working together.
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards-grid">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/17920.jpg" alt="Farmer Rajan"/>
+        <span class="card-img-badge">Farmer</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Project-1 </div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><span style="font-size: 25px;color: black;">District:Kancheepuram</span></div>
+        
+        </div>
+        <div class="card-footer">
+          <button class="btn-view">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1591154669695-5f2a8d20c089?w=600&q=80" alt="Farmer Murugan"/>
+        <span class="card-img-badge">Farmer</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Project-2 </div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><span style="font-size: 25px;color: black;">District: Villupuram</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-view">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80" alt="Farmer Kavitha"/>
+        <span class="card-img-badge">Farmer</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Project-3 </div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><span style="font-size: 25px;color: black;">District:Tiruvallur</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-view">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80" alt="Farmer Selvam"/>
+        <span class="card-img-badge">Farmer</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Project-4</div>
+        <div class="card-divider"></div>
+        <div class="card-meta">
+          <div class="card-meta-row"><div class="card-meta-dot"></div><span style="font-size: 25px;color: black;">District: Chengalpattu</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-view">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo footer-logo" onclick="showPage('home')" style="gap:0;display:inline-block;"><img src="https://chediwebsite.s3.us-east-1.amazonaws.com/extraimages/chedilogo.png" alt="Chedi The Organic Farm"></a>
+        <p>Rebuilding agriculture through sustainable ecosystems.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4><a onclick="showPage('about')">About Us</a><a
+          onclick="showPage('land')">Agri-Land</a><a onclick="showPage('farmer')">Farmer-Growth</a><a
+          onclick="showPage('csa')">CSA</a><a onclick="showPage('contact')">Contact Us</a>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact</h4>
+        <p>📧 support@chedi.in</p>
+        <p>📞 +91 94441 26240</p>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <div class="social-icon">𝕏</div>
+          <div class="social-icon">in</div>
+          <div class="social-icon">f</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CHEDI – The Organic Farm.</p>
+      <div class="footer-legal-links"><a href="/terms-and-conditions" class="footer-legal-link"
+          onclick="navigateLegal(event,'terms','/terms-and-conditions')">Terms &amp; Conditions</a><span
+          class="footer-legal-sep">|</span><a href="/privacy-policy" class="footer-legal-link"
+          onclick="navigateLegal(event,'privacy','/privacy-policy')">Privacy Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(pageId) {
+    if (window.parent && window.parent !== window && window.parent.showPage) {
+      window.parent.showPage(pageId);
+    }
+  }
+
+  function navigateLegal(e, pageId, path) {
+    e.preventDefault();
+    if (window.parent && window.parent !== window && window.parent.navigateLegal) {
+      window.parent.navigateLegal(e, pageId, path);
+    }
+  }
+
+  // Navigate to farm listing page for the selected CSA category
+  function openFarmListing(categoryId) {
+    if (window.parent && window.parent !== window && window.parent.openFarmListing) {
+      window.parent.openFarmListing(categoryId);
+    } else if (window.parent && window.parent !== window) {
+      window.parent.postMessage({ type: 'CHEDI_OPEN_FARM_LISTING', categoryId: categoryId }, '*');
+    }
+  }
+
+  document.querySelectorAll('#csa-farm-cards .csa-farm-card--available').forEach(function (card) {
+    var categoryId = card.getAttribute('data-farm-id');
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('.btn-view')) return;
+      openFarmListing(categoryId);
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openFarmListing(categoryId);
+      }
+    });
+  });
+
+  document.querySelectorAll('#csa-farm-cards .csa-farm-card--available .btn-view[data-farm-id]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      openFarmListing(btn.getAttribute('data-farm-id'));
+    });
+  });
+
+  // Handle hamburger menu toggle
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navDrawer = document.getElementById('navDrawer');
+  const navDrawerLinks = navDrawer.querySelectorAll('a');
+
+  // Toggle menu open/close
+  hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('active');
+    navDrawer.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', hamburgerBtn.classList.contains('active'));
+  });
+
+  // Close menu when a link is clicked
+  navDrawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('active');
+      navDrawer.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (event) => {
+    const isClickInside = navDrawer.contains(event.target) || hamburgerBtn.contains(event.target);
+    if (!isClickInside && navDrawer.classList.contains('open')) {
+      hamburgerBtn.classList.remove('active');
+      navDrawer.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navDrawer.classList.contains('open')) {
+      hamburgerBtn.classList.remove('active');
+      navDrawer.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+
+<script src="/js/utils.js"></script>
+<script>
+  if (window.Utils && window.Utils.highlightChediBrand) {
+    window.Utils.highlightChediBrand(document.body, {
+      exclude: '.nav, #navDrawer, footer, script, style, noscript, title'
+    });
+  }
+</script>
+
+</body>
+</html>
