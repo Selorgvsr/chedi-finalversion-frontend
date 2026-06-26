@@ -11371,7 +11371,7 @@
             </div>
           </div>
           <div class="contact-map-img"><img
-              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&q=80&auto=format&fit=crop"
+              src="https://chediwebsite.s3.us-east-1.amazonaws.com/images/african-people-harvesting-vegetables.jpg"
               alt="Farm" loading="lazy"></div>
           <div style="margin-top:22px;">
             <div
@@ -12005,10 +12005,14 @@
         btn.textContent = 'Sending…';
         feedback.textContent = '';
 
+        var timeoutId;
         try {
+          var controller = new AbortController();
+          timeoutId = setTimeout(function () { controller.abort(); }, 20000);
           var res = await fetch('/api/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            signal: controller.signal,
             body: JSON.stringify({
               fullName: name,
               email: email,
@@ -12017,7 +12021,15 @@
               projectDetails: message
             })
           });
-          var data = await res.json();
+          clearTimeout(timeoutId);
+
+          var data;
+          try {
+            data = await res.json();
+          } catch (parseErr) {
+            data = { success: false, message: 'The server returned an invalid response.' };
+          }
+
           if (data.success) {
             feedback.style.color = '#2d6a4f';
             feedback.textContent = "✓ Message sent! We'll get back to you soon.";
@@ -12030,12 +12042,15 @@
               ? data.errors.map(function (e) { return e.message; }).join(' ')
               : data.message;
             feedback.style.color = '#c0392b';
-            feedback.textContent = errMsg || 'Something went wrong. Please try again.';
+            feedback.textContent = 'Send Failed: ' + (errMsg || ('HTTP ' + res.status + ' ' + res.statusText));
           }
         } catch (err) {
           feedback.style.color = '#c0392b';
-          feedback.textContent = 'Could not reach the server. Please try again later.';
+          feedback.textContent = 'Send Failed: ' + (err.name === 'AbortError'
+            ? 'Request timed out while waiting for the email server.'
+            : (err.message || 'Could not reach the server.'));
         } finally {
+          if (timeoutId) clearTimeout(timeoutId);
           btn.disabled = false;
           btn.textContent = 'Send Message →';
         }
